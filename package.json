@@ -1,0 +1,51 @@
+{
+  "name": "physical-ai-humanoid-robotics-textbook",
+  "version": "1.0.0",
+  "description": "University-level textbook on Physical AI and Humanoid Robotics",
+  "private": true,
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "lint": "markdownlint docs/**/*.md",
+    "check-quality": "npm run check-readability && npm run validate-citations",
+    "check-readability": "python scripts/check-readability.py",
+    "validate-citations": "python scripts/validate-citations.py",
+    "test-exercises": "bash scripts/test-exercises.sh"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^3.5.0",
+    "@docusaurus/preset-classic": "^3.5.0",
+    "@mdx-js/react": "^3.0.0",
+    "clsx": "^2.1.0",
+    "prism-react-renderer": "^2.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "^3.5.0",
+    "@docusaurus/types": "^3.5.0",
+    "markdownlint-cli": "^0.41.0"
+  },
+  "engines": {
+    "node": ">=18.0"
+  },
+  "keywords": [
+    "robotics",
+    "humanoid",
+    "physical-ai",
+    "education",
+    "textbook",
+    "embodied-intelligence"
+  ],
+  "author": "PIAIC Quarter 4",
+  "license": "CC-BY-NC-SA-4.0"
+}
