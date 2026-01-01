@@ -1,14 +1,16 @@
 <!--
 SYNC IMPACT REPORT
-Version change: [TEMPLATE] → 1.0.0
-Modified principles: All principles defined from template
-Added sections: All core sections populated
+Version change: 1.0.0 → 1.1.0
+Modified principles: Added Section VIII (RAG Chatbot System Principles)
+Added sections: RAG Chatbot architectural standards, success criteria
 Removed sections: None
 Templates requiring updates:
   ✅ .specify/templates/spec-template.md - Validated (aligned)
   ✅ .specify/templates/plan-template.md - Validated (aligned)
   ✅ .specify/templates/tasks-template.md - Validated (aligned)
-Follow-up TODOs: None
+Follow-up TODOs:
+  - Create RAG Chatbot feature specification (/sp.specify)
+  - Create RAG Chatbot architectural plan (/sp.plan)
 -->
 
 # Physical AI & Humanoid Robotics Textbook Constitution
@@ -94,6 +96,59 @@ All content MUST be original with ZERO tolerance for plagiarism:
 - Plagiarism checking required before publication
 
 **Enforcement**: Automated plagiarism detection plus manual review for every chapter.
+
+### VIII. RAG Chatbot System Principles
+
+The integrated RAG chatbot MUST adhere to the following principles:
+
+#### Grounded Truthfulness
+All chatbot responses MUST be derived strictly from indexed book content or explicitly selected user text:
+- NO hallucinated or external knowledge allowed unless cited as supplemental
+- Explicit statement required when information is not found: "Information not found in the book"
+- Every answer must be traceable to retrieved source chunks
+
+#### Retrieval-First Reasoning
+Every response MUST be backed by retrieved passages from the vector database before generation:
+- Chunking strategy must preserve semantic and section-level coherence
+- Each chunk must include source metadata (chapter, section, URL anchor)
+- Retrieval parameters must be deterministic for reproducibility
+
+#### Explainability and Transparency
+The system MUST be able to surface which document chunks or text selections were used:
+- Retrieved passages must be citeable in responses
+- Debug mode for retrieval accuracy verification via logs
+- Clear separation of retrieval, reasoning, and generation layers
+
+#### Academic and Technical Clarity
+Responses MUST be clear, concise, and suitable for computer science and robotics audiences:
+- Maintain consistency with textbook terminology and style
+- Technical accuracy aligned with textbook content standards
+- Progressive concept building matching textbook pedagogy
+
+#### AI-Native Architecture
+The system MUST be architected around agentic workflows, tool use, and retrieval pipelines:
+- Backend API: FastAPI or LangGraph
+- Agent orchestration: LangGraph or ChatKit
+- Vector storage: Qdrant (Cloud Free Tier)
+- Metadata and session storage: Neon PostgreSQL
+- Stateless inference endpoints
+- No monolithic request-response logic
+
+#### Security and Isolation
+User-selected text queries MUST be sandboxed and isolated:
+- Selected text mode: retrieval limited strictly to that text scope
+- Global embeddings must NOT be queried in selected text mode
+- No training on user data
+- No storage of personally identifiable information (PII)
+- Backend deployable independently from Docusaurus frontend
+
+#### Cost and Resource Constraints
+System MUST operate fully within free tiers where specified:
+- Qdrant Cloud Free Tier for vector storage
+- Neon PostgreSQL for metadata storage
+- Efficient chunking and retrieval to minimize API costs
+
+**Validation**: Zero hallucinations, graceful handling of empty/irrelevant queries, modular and testable code.
 
 ## Content Requirements
 
@@ -208,6 +263,15 @@ The textbook succeeds when:
    - Meets or exceeds standards of comparable robotics textbooks
    - Exercises provide sufficient depth for course projects
 
+5. **RAG Chatbot Functionality**:
+   - Chatbot correctly answers questions about book content
+   - Chatbot correctly answers questions using only user-selected text
+   - Zero hallucinations observed during evaluation
+   - Retrieval accuracy verified via logging and debug mode
+   - Frontend integration seamlessly embedded in Docusaurus UI
+   - Backend operates within free tier resource constraints
+   - All answers traceable to source chunks with citations
+
 ## Governance
 
 ### Amendment Process
@@ -241,4 +305,4 @@ When principles conflict in specific situations:
 3. Escalate to project leadership for adjudication
 4. Document resolution as clarification amendment
 
-**Version**: 1.0.0 | **Ratified**: 2025-12-09 | **Last Amended**: 2025-12-09
+**Version**: 1.1.0 | **Ratified**: 2025-12-09 | **Last Amended**: 2025-12-25

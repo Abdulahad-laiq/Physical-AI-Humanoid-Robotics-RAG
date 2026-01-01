@@ -1,0 +1,19 @@
+/**
+ * Root component for Docusaurus theme swizzling.
+ *
+ * This wraps the entire app and adds the RAG Chatbot widget
+ * to every page.
+ */
+
+import React from 'react';
+// import ChatbotWidget from '../components/ChatbotWidget';
+
+export default function Root({children}) {
+  return (
+    <>
+      {children}
+      {/* ChatbotWidget disabled - needs backend running first */}
+      {/* <ChatbotWidget /> */}
+    </>
+  );
+}

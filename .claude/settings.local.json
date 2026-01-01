@@ -1,11 +1,20 @@
 {
   "permissions": {
     "allow": [
-      "Bash(ls:*)",
-      "Bash(powershell.exe:*)",
-      "Bash(node --version:*)",
-      "Bash(npm:*)",
-      "Bash(npx create-docusaurus@latest . classic --typescript)"
+      "Bash(netstat:*)",
+      "Bash(\"..\\.venv\\Scripts\\python.exe\" -m uvicorn src.main:app --reload --port 8000)",
+      "Bash(timeout:*)",
+      "Bash(ping:*)",
+      "Bash(\"..\\.venv\\Scripts\\python.exe\" -c \"import sys; sys.path.insert(0, ''.''); from src.main import app; print(''App imported successfully'')\")",
+      "Bash(\"..\\.venv\\Scripts\\python.exe\" -m uvicorn:*)",
+      "Bash(\"..\\.venv\\Scripts\\python.exe\" -c \"import sys; sys.path.insert(0, ''.''); import src.main\")",
+      "Bash(\".venv\\Scripts\\python.exe\" -m spacy download en_core_web_sm)",
+      "Bash(\"..\\.venv\\Scripts\\python.exe\" check_qdrant.py)",
+      "Bash(\"..\\.venv\\Scripts\\python.exe\" scriptssetup_qdrant.py)",
+      "Bash(\"..\\.venv\\Scripts\\python.exe\" scripts/setup_qdrant.py)",
+      "Bash(\"..\\.venv\\Scripts\\python.exe\":*)",
+      "Bash(\"..\\.venv\\Scripts\\python.exe\" scripts/ingest_textbook.py:*)",
+      "Bash(\".venv\\Scripts\\python.exe\" -c \"import qdrant_client; print(qdrant_client.__version__)\")"
     ],
     "deny": [],
     "ask": []
