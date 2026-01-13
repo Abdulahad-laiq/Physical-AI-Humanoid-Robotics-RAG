@@ -37,7 +37,7 @@ export default function ChatbotWidget() {
   const apiBaseUrl =
     typeof window !== 'undefined' && window.location.hostname === 'localhost'
       ? 'http://localhost:8000'
-      : 'https://your-backend-url.com';
+      : 'https://abdulahadlaiq-rag-chatbot.hf.space';
 
   return (
     <ChatWidget
