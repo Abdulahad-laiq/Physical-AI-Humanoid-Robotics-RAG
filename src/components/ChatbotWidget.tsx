@@ -36,7 +36,7 @@ export default function ChatbotWidget() {
   // Get API URL - use localhost in development
   const apiBaseUrl =
     typeof window !== 'undefined' && window.location.hostname === 'localhost'
-      ? 'http://localhost:8000'
+      ? 'http://localhost:7860'
       : 'https://abdulahadlaiq-rag-chatbot.hf.space';
 
   return (
